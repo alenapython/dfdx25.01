@@ -1,3 +1,5 @@
+import random
+
 import pygame as py
 class Circle:
     def __init__(self, win, colour, x, y, r):
@@ -8,6 +10,7 @@ class Circle:
         self.r = r
         self.is_jump = False
         self.jump_counter=0
+        self.speed = random.randint(1, 5)
 
     def draw(self):
         py.draw.circle(self.win, self.colour, (self.x, self.y), self.r)
@@ -34,5 +37,13 @@ class Circle:
             else:
                 self.jump_counter = 30
                 self.is_jump = False
+    def razv(self):
+        self. x = self.x + self.speed
+        if self.x > 700:
+            self.speed = -self.speed
+        if self.x < 0:
+            self.speed = -self.speed
+
+
 
 
